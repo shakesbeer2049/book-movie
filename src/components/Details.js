@@ -1,24 +1,17 @@
 import Form from "./Form";
 import { useState } from "react";
 
-const Details = ({
-  movieDetails,
-  bookingDetails,
-  setBookingDetails,
-  bookingObj,
-}) => {
-  //   console.log(movieDetails.show.name);
+const Details = ({ movieDetails, bookingDetails, setBookingDetails }) => {
   const [showForm, setShowForm] = useState(false);
 
   let regEx = /(<([^>]+)>)/gi;
   function onBookShowClick() {
-    console.log(movieDetails.show.id);
     setShowForm(!showForm);
   }
   return (
     <>
       {movieDetails.show ? (
-        <div className="details fixed overflow-scroll md:fixed w-3/5 right-0 h-full ">
+        <div className="details fixed overflow-hidden top-16 md:fixed w-3/5 right-0 h-full ">
           <h1 className="text-center text-teal-900 text-3xl">
             {movieDetails.show.name}
           </h1>
@@ -46,7 +39,6 @@ const Details = ({
               setShowForm={setShowForm}
               bookingDetails={bookingDetails}
               setBookingDetails={setBookingDetails}
-              bookingObj = {bookingObj}
             />
           ) : (
             <></>
